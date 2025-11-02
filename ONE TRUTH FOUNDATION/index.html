@@ -1,0 +1,1482 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ONE TRUTH FOUNDATION </title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #4a6fdc;
+            --secondary-color: #ff6b6b;
+            --dark-color: #1a1a2e;
+            --light-color: #f8f9fa;
+            --text-dark: #333;
+            --text-light: #f8f9fa;
+            --transition: all 0.3s ease;
+        }
+
+        [data-theme="dark"] {
+            --primary-color: #5d7eff;
+            --secondary-color: #ff8e8e;
+            --dark-color: #0f0f1a;
+            --light-color: #16213e;
+            --text-dark: #f8f9fa;
+            --text-light: #f8f9fa;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--light-color);
+            color: var(--text-dark);
+            transition: var(--transition);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: var(--dark-color);
+            color: var(--text-light);
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--text-light);
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--secondary-color);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 30px;
+        }
+
+        nav ul li a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        nav ul li a:hover {
+            color: var(--secondary-color);
+        }
+
+        .active {
+            color: var(--secondary-color) !important;
+            font-weight: 600 !important;
+        }
+
+        .theme-toggle {
+            background: none;
+            border: none;
+            color: var(--text-light);
+            font-size: 20px;
+            cursor: pointer;
+            margin-left: 20px;
+            transition: var(--transition);
+        }
+
+        .theme-toggle:hover {
+            color: var(--secondary-color);
+        }
+
+        .mobile-menu {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        /* Page Content */
+        .page-content {
+            padding: 150px 0 80px;
+            min-height: calc(100vh - 200px);
+        }
+
+        .page-hero {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .page-hero h1 {
+            font-size: 42px;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .page-hero p {
+            font-size: 18px;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color), var(--dark-color));
+            color: var(--text-light);
+            padding: 150px 0 100px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            line-height: 1.3;
+        }
+
+        .hero p {
+            font-size: 20px;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            line-height: 1.6;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--text-light);
+            margin-left: 15px;
+        }
+
+        .btn-outline:hover {
+            background: var(--text-light);
+            color: var(--dark-color);
+        }
+
+        /* Focus Areas */
+        .focus-areas {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 36px;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .section-title p {
+            color: var(--text-dark);
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .focus-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .focus-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+        }
+
+        [data-theme="dark"] .focus-card {
+            background-color: var(--dark-color);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .focus-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .focus-icon {
+            font-size: 50px;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .focus-card h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+
+        .focus-card p {
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* About Page */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .about-img {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .about-img img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .about-text h2 {
+            font-size: 32px;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+
+        .mission-vision {
+            margin-top: 50px;
+        }
+
+        .mv-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .mv-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        [data-theme="dark"] .mv-card {
+            background-color: var(--dark-color);
+        }
+
+        .mv-card h3 {
+            font-size: 24px;
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+        }
+
+        /* Our Work Page */
+        .work-stats {
+            background-color: rgba(74, 111, 220, 0.1);
+            padding: 60px 0;
+            margin: 50px 0;
+            border-radius: 10px;
+        }
+
+        [data-theme="dark"] .work-stats {
+            background-color: rgba(10, 10, 20, 0.5);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-size: 42px;
+            color: var(--secondary-color);
+            margin-bottom: 10px;
+        }
+
+        .stat-item p {
+            font-size: 18px;
+            font-weight: 500;
+        }
+
+        .impact-stories {
+            margin-top: 60px;
+        }
+
+        .story-card {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 30px;
+            align-items: center;
+            margin-bottom: 40px;
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        [data-theme="dark"] .story-card {
+            background-color: var(--dark-color);
+        }
+
+        .story-img {
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .story-img img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .story-content h3 {
+            font-size: 24px;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .story-content p {
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+
+        /* Get Involved Page */
+        .involve-options {
+            margin-top: 50px;
+        }
+
+        .option-tabs {
+            display: flex;
+            margin-bottom: 30px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .tab-btn {
+            padding: 15px 30px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--text-dark);
+            position: relative;
+        }
+
+        .tab-btn.active {
+            color: var(--primary-color);
+        }
+
+        .tab-btn.active::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: var(--primary-color);
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .volunteer-form,
+        .donation-form {
+            background-color: white;
+            border-radius: 10px;
+            padding: 40px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        [data-theme="dark"] .volunteer-form,
+        [data-theme="dark"] .donation-form {
+            background-color: var(--dark-color);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: var(--transition);
+        }
+
+        [data-theme="dark"] .form-group input,
+        [data-theme="dark"] .form-group select,
+        [data-theme="dark"] .form-group textarea {
+            background-color: #1a1a2e;
+            border-color: #333;
+            color: var(--text-light);
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: var(--primary-color);
+            outline: none;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        /* Contact Page */
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .contact-info {
+            background-color: rgba(74, 111, 220, 0.1);
+            padding: 40px;
+            border-radius: 10px;
+        }
+
+        [data-theme="dark"] .contact-info {
+            background-color: rgba(10, 10, 20, 0.5);
+        }
+
+        .contact-info h3 {
+            font-size: 24px;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+
+        .contact-icon {
+            font-size: 20px;
+            color: var(--secondary-color);
+            margin-right: 15px;
+            margin-top: 3px;
+        }
+
+        .contact-text h4 {
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+
+        .contact-text p,
+        .contact-text a {
+            color: var(--text-dark);
+            text-decoration: none;
+            line-height: 1.6;
+        }
+
+        .contact-text a:hover {
+            color: var(--primary-color);
+        }
+
+        .social-contact {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .social-contact a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: var(--primary-color);
+            border-radius: 50%;
+            color: white;
+            transition: var(--transition);
+        }
+
+        .social-contact a:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-3px);
+        }
+
+        .contact-map {
+            height: 100%;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .contact-map iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Projects Section */
+        .projects {
+            padding: 80px 0;
+            background-color: rgba(74, 111, 220, 0.05);
+        }
+
+        [data-theme="dark"] .projects {
+            background-color: rgba(10, 10, 20, 0.8);
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .project-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+        }
+
+        [data-theme="dark"] .project-card {
+            background-color: var(--dark-color);
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .project-img {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .project-content {
+            padding: 25px;
+        }
+
+        .project-content h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+
+        .project-content p {
+            color: var(--text-dark);
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        /* CTA Section */
+        .cta {
+            padding: 80px 0;
+            text-align: center;
+            background: linear-gradient(135deg, var(--secondary-color), #ff8e8e);
+            color: white;
+        }
+
+        .cta h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .cta p {
+            font-size: 18px;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            line-height: 1.6;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-color);
+            color: var(--text-light);
+            padding: 60px 0 20px;
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h3 {
+            font-size: 20px;
+            margin-bottom: 20px;
+            color: var(--secondary-color);
+        }
+
+        .footer-col p {
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: var(--text-light);
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 40px;
+            }
+
+            nav ul {
+                display: none;
+            }
+
+            .mobile-menu {
+                display: block;
+            }
+
+            .about-content,
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+
+            .story-card {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                padding: 120px 0 80px;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .hero p {
+                font-size: 18px;
+            }
+
+            .btn-container {
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .btn-outline {
+                margin-left: 0;
+            }
+
+            .section-title h2 {
+                font-size: 30px;
+            }
+
+            .mv-grid,
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-map {
+                height: 300px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .logo {
+                font-size: 24px;
+            }
+
+            .hero h1 {
+                font-size: 28px;
+            }
+
+            .focus-grid,
+            .project-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header (same for all pages) -->
+    <header>
+        <div class="container header-container">
+            <a href="index.html" class="logo">ONE <span>TRUTH FOUNDATION</span></a>
+            <nav>
+                <ul>
+                    <li><a href="about.html" id="aboutLink">About</a></li>
+                    <li><a href="work.html" id="workLink">Our Work</a></li>
+                    <li><a href="involve.html" id="involveLink">Get Involved</a></li>
+                    <li><a href="contact.html" id="contactLink">Contact</a></li>
+                </ul>
+            </nav>
+            <button class="theme-toggle" id="themeToggle">
+                <i class="fas fa-moon"></i>
+            </button>
+            <div class="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content (changes based on page) -->
+    <main id="mainContent">
+        <!-- Home Page Content -->
+        <div id="homePage" class="page-content">
+            <section class="hero">
+                <div class="container">
+                    <h1>Together for a Better Tomorrow</h1>
+                    <p>ONE TRUTH FOUNDATION is dedicated to creating positive, lasting change in the lives of
+                        underprivileged individuals and families through education, healthcare, and social justice
+                        initiatives.</p>
+                    <div class="btn-container">
+                        <a href="about.html" class="btn">Read More</a>
+                        <a href="involve.html" class="btn btn-outline">Donate Now</a>
+                    </div>
+                </div>
+            </section>
+
+            <section class="focus-areas">
+                <div class="container">
+                    <div class="section-title">
+                        <h2>Our Focus Areas</h2>
+                        <p>We address critical needs in communities through targeted programs and initiatives</p>
+                    </div>
+                    <div class="focus-grid">
+                        <div class="focus-card">
+                            <div class="focus-icon">
+                                <i class="fas fa-book-open"></i>
+                            </div>
+                            <h3>Education</h3>
+                            <p>Providing access to quality education through schools, scholarships, and community
+                                learning centers.</p>
+                        </div>
+                        <div class="focus-card">
+                            <div class="focus-icon">
+                                <i class="fas fa-heartbeat"></i>
+                            </div>
+                            <h3>Healthcare</h3>
+                            <p>Organizing medical camps, health awareness programs, and supporting healthcare
+                                infrastructure.</p>
+                        </div>
+                        <div class="focus-card">
+                            <div class="focus-icon">
+                                <i class="fas fa-female"></i>
+                            </div>
+                            <h3>Women Empowerment</h3>
+                            <p>Promoting gender equality through skill development, education, and economic
+                                opportunities.</p>
+                        </div>
+                        <div class="focus-card">
+                            <div class="focus-icon">
+                                <i class="fas fa-balance-scale"></i>
+                            </div>
+                            <h3>Social Justice</h3>
+                            <p>Advocating for the rights of marginalized communities and fighting against
+                                discrimination.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="projects">
+                <div class="container">
+                    <div class="section-title">
+                        <h2>Ongoing Projects</h2>
+                        <p>Our current initiatives making a difference in communities</p>
+                    </div>
+                    <div class="project-grid">
+                        <div class="project-card">
+                            <div class="project-img"
+                                style="background-image: url('https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');">
+                            </div>
+                            <div class="project-content">
+                                <h3>Community Library Initiative</h3>
+                                <p>Establishing libraries in underserved areas to promote literacy and lifelong
+                                    learning.</p>
+                                <a href="#" class="btn">Learn More</a>
+                            </div>
+                        </div>
+                        <div class="project-card">
+                            <div class="project-img"
+                                style="background-image: url('https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');">
+                            </div>
+                            <div class="project-content">
+                                <h3>Health Camp in Rural Villages</h3>
+                                <p>Providing free medical checkups, medicines, and health education in remote areas.</p>
+                                <a href="#" class="btn">Learn More</a>
+                            </div>
+                        </div>
+                        <div class="project-card">
+                            <div class="project-img"
+                                style="background-image: url('https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');">
+                            </div>
+                            <div class="project-content">
+                                <h3>Skill Development Workshops</h3>
+                                <p>Empowering youth and women with vocational training for better employment
+                                    opportunities.</p>
+                                <a href="#" class="btn">Learn More</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="cta">
+                <div class="container">
+                    <h2>Join Us in Making a Difference</h2>
+                    <p>Your support can help transform lives and create lasting change in communities. Whether through
+                        donations or volunteering, every contribution matters.</p>
+                    <div class="btn-container">
+                        <a href="involve.html" class="btn">Donate Now</a>
+                        <a href="involve.html" class="btn btn-outline">Volunteer With Us</a>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- About Page Content -->
+        <div id="aboutPage" class="page-content" style="display: none;">
+            <div class="container">
+                <div class="page-hero">
+                    <h1>About ONE TRUTH FOUNDATION</h1>
+                    <p>Learn about our mission, vision, and the values that drive our work</p>
+                </div>
+
+                <div class="about-content">
+                    <div class="about-img">
+                        <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                            alt="Our Team">
+                    </div>
+                    <div class="about-text">
+                        <h2>Our Story</h2>
+                        <p>ONE TRUTH FOUNDATION was founded in 2015 with a vision to create a more inclusive and
+                            compassionate society. What began as a small community initiative has grown into a respected
+                            non-profit organization making meaningful impact across multiple regions.</p>
+                        <p>Our journey has been guided by the belief that every individual deserves access to basic
+                            rights and opportunities, regardless of their background or circumstances.</p>
+                        <p>Over the years, we've touched the lives of over 50,000 beneficiaries through our various
+                            programs and initiatives, always staying true to our core values of integrity, empathy, and
+                            sustainable change.</p>
+                    </div>
+                </div>
+
+                <div class="mission-vision">
+                    <div class="section-title">
+                        <h2>Our Guiding Principles</h2>
+                    </div>
+                    <div class="mv-grid">
+                        <div class="mv-card">
+                            <h3>Our Mission</h3>
+                            <p>To uplift underprivileged communities by providing support, resources, and opportunities
+                                that help people live with dignity and hope. We work to bridge the gap between need and
+                                access through collaborative action.</p>
+                        </div>
+                        <div class="mv-card">
+                            <h3>Our Vision</h3>
+                            <p>A world where every individual has equal opportunities to thrive, where compassion drives
+                                social change, and where communities are empowered to build sustainable futures for
+                                themselves.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Our Work Page Content -->
+        <div id="workPage" class="page-content" style="display: none;">
+            <div class="container">
+                <div class="page-hero">
+                    <h1>Our Impact</h1>
+                    <p>Discover how we're creating positive change in communities</p>
+                </div>
+
+                <div class="work-stats">
+                    <div class="container">
+                        <div class="stats-grid">
+                            <div class="stat-item">
+                                <h3>50+</h3>
+                                <p>Communities Served</p>
+                            </div>
+                            <div class="stat-item">
+                                <h3>25K+</h3>
+                                <p>Lives Impacted</p>
+                            </div>
+                            <div class="stat-item">
+                                <h3>120+</h3>
+                                <p>Projects Completed</p>
+                            </div>
+                            <div class="stat-item">
+                                <h3>500+</h3>
+                                <p>Volunteers Engaged</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-title">
+                    <h2>Our Programs</h2>
+                    <p>We address critical community needs through these key initiatives</p>
+                </div>
+
+                <div class="focus-grid">
+                    <div class="focus-card">
+                        <div class="focus-icon">
+                            <i class="fas fa-school"></i>
+                        </div>
+                        <h3>Education for All</h3>
+                        <p>Scholarships, school infrastructure, and after-school programs for underprivileged children.
+                        </p>
+                    </div>
+                    <div class="focus-card">
+                        <div class="focus-icon">
+                            <i class="fas fa-clinic-medical"></i>
+                        </div>
+                        <h3>Health & Wellness</h3>
+                        <p>Mobile clinics, health awareness campaigns, and nutrition programs in rural areas.</p>
+                    </div>
+                    <div class="focus-card">
+                        <div class="focus-icon">
+                            <i class="fas fa-hands-helping"></i>
+                        </div>
+                        <h3>Livelihood Support</h3>
+                        <p>Vocational training, microfinance, and entrepreneurship development programs.</p>
+                    </div>
+                    <div class="focus-card">
+                        <div class="focus-icon">
+                            <i class="fas fa-gavel"></i>
+                        </div>
+                        <h3>Advocacy & Rights</h3>
+                        <p>Legal aid, awareness programs, and policy advocacy for marginalized groups.</p>
+                    </div>
+                </div>
+
+                <div class="impact-stories">
+                    <div class="section-title">
+                        <h2>Success Stories</h2>
+                        <p>Real impact in people's lives</p>
+                    </div>
+
+                    <div class="story-card">
+                        <div class="story-img">
+                            <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                                alt="Success Story">
+                        </div>
+                        <div class="story-content">
+                            <h3>From Student to Teacher</h3>
+                            <p>Priya, once a beneficiary of our scholarship program, is now teaching at one of our
+                                community learning centers, inspiring the next generation.</p>
+                            <p>"ONE TRUTH gave me the opportunity to complete my education when my family couldn't
+                                afford it. Now I'm proud to give back to my community."</p>
+                            <a href="#" class="btn">Read Full Story</a>
+                        </div>
+                    </div>
+
+                    <div class="story-card">
+                        <div class="story-img">
+                            <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                                alt="Success Story">
+                        </div>
+                        <div class="story-content">
+                            <h3>Women's Self-Help Group</h3>
+                            <p>A group of 15 women in rural Maharashtra started a successful tailoring business after
+                                attending our skill development workshops.</p>
+                            <p>"We went from being dependent on our husbands to becoming entrepreneurs. This program
+                                changed our lives completely."</p>
+                            <a href="#" class="btn">Read Full Story</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Get Involved Page Content -->
+        <div id="involvePage" class="page-content" style="display: none;">
+            <div class="container">
+                <div class="page-hero">
+                    <h1>Get Involved</h1>
+                    <p>Join us in creating positive change through various opportunities</p>
+                </div>
+
+                <div class="involve-options">
+                    <div class="option-tabs">
+                        <button class="tab-btn active" data-tab="volunteer">Volunteer</button>
+                        <button class="tab-btn" data-tab="donate">Donate</button>
+                        <button class="tab-btn" data-tab="partner">Partner With Us</button>
+                    </div>
+
+                    <div id="volunteer" class="tab-content active">
+                        <div class="volunteer-form">
+                            <h2>Volunteer Application</h2>
+                            <p>Join our team of dedicated volunteers and contribute your time and skills to meaningful
+                                causes.</p>
+
+                            <form>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="v-name">Full Name</label>
+                                        <input type="text" id="v-name" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="v-email">Email</label>
+                                        <input type="email" id="v-email" required>
+                                    </div>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="v-phone">Phone</label>
+                                        <input type="tel" id="v-phone">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="v-location">Location</label>
+                                        <input type="text" id="v-location">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="v-skills">Skills/Expertise</label>
+                                    <input type="text" id="v-skills"
+                                        placeholder="Teaching, Medical, Construction, etc.">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="v-interests">Areas of Interest</label>
+                                    <select id="v-interests" multiple>
+                                        <option value="education">Education</option>
+                                        <option value="healthcare">Healthcare</option>
+                                        <option value="women-empowerment">Women Empowerment</option>
+                                        <option value="social-justice">Social Justice</option>
+                                        <option value="fundraising">Fundraising</option>
+                                        <option value="events">Event Management</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="v-availability">Availability</label>
+                                    <select id="v-availability">
+                                        <option value="weekdays">Weekdays</option>
+                                        <option value="weekends">Weekends</option>
+                                        <option value="both">Both</option>
+                                        <option value="flexible">Flexible</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="v-message">Why do you want to volunteer with us?</label>
+                                    <textarea id="v-message" rows="4"></textarea>
+                                </div>
+
+                                <button type="submit" class="btn">Submit Application</button>
+                            </form>
+                        </div>
+                    </div>
+
+                    <div id="donate" class="tab-content">
+                        <div class="donation-form">
+                            <h2>Make a Donation</h2>
+                            <p>Your generous contribution helps us continue our vital work in communities.</p>
+
+                            <form>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="d-name">Full Name</label>
+                                        <input type="text" id="d-name" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="d-email">Email</label>
+                                        <input type="email" id="d-email" required>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="d-amount">Donation Amount (USD)</label>
+                                    <input type="number" id="d-amount" min="1" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="d-frequency">Donation Frequency</label>
+                                    <select id="d-frequency">
+                                        <option value="one-time">One-time</option>
+                                        <option value="monthly">Monthly</option>
+                                        <option value="quarterly">Quarterly</option>
+                                        <option value="yearly">Yearly</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="d-purpose">Purpose (Optional)</label>
+                                    <select id="d-purpose">
+                                        <option value="general">General Fund</option>
+                                        <option value="education">Education Programs</option>
+                                        <option value="healthcare">Healthcare Initiatives</option>
+                                        <option value="women">Women Empowerment</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="d-message">Message (Optional)</label>
+                                    <textarea id="d-message" rows="3"></textarea>
+                                </div>
+
+                                <button type="submit" class="btn">Proceed to Payment</button>
+                            </form>
+                        </div>
+                    </div>
+
+                    <div id="partner" class="tab-content">
+                        <div class="section-title">
+                            <h2>Partnership Opportunities</h2>
+                            <p>We collaborate with corporations, institutions, and other NGOs to maximize our impact</p>
+                        </div>
+
+                        <div class="focus-grid">
+                            <div class="focus-card">
+                                <div class="focus-icon">
+                                    <i class="fas fa-handshake"></i>
+                                </div>
+                                <h3>Corporate Partnerships</h3>
+                                <p>CSR initiatives, employee volunteering, and cause-related marketing collaborations.
+                                </p>
+                            </div>
+                            <div class="focus-card">
+                                <div class="focus-icon">
+                                    <i class="fas fa-university"></i>
+                                </div>
+                                <h3>Institutional Tie-ups</h3>
+                                <p>Collaborate with schools, colleges, and universities for awareness and action.</p>
+                            </div>
+                            <div class="focus-card">
+                                <div class="focus-icon">
+                                    <i class="fas fa-users"></i>
+                                </div>
+                                <h3>Community Partnerships</h3>
+                                <p>Work with local leaders and community groups for grassroots implementation.</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-info" style="margin-top: 50px;">
+                            <h3>For partnership inquiries:</h3>
+                            <p>Email us at <a
+                                    href="mailto:partnerships@onetruthfoundation.org">partnerships@onetruthfoundation.org</a>
+                            </p>
+                            <p>Call our partnership team at +1 (234) 567-8910</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact Page Content -->
+        <div id="contactPage" class="page-content" style="display: none;">
+            <div class="container">
+                <div class="page-hero">
+                    <h1>Contact Us</h1>
+                    <p>Get in touch with our team for any inquiries or collaborations</p>
+                </div>
+
+                <div class="contact-container">
+                    <div class="contact-info">
+                        <h3>Our Office</h3>
+
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Address</h4>
+                                <p>123 Charity Street, Social Good City, SG 12345</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Phone</h4>
+                                <p><a href="tel:+1234567890">+1 (234) 567-890</a></p>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Email</h4>
+                                <p><a href="mailto:info@onetruthfoundation.org">info@onetruthfoundation.org</a></p>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Office Hours</h4>
+                                <p>Monday-Friday: 9am-5pm<br>Saturday: 10am-2pm</p>
+                            </div>
+                        </div>
+
+                        <div class="social-contact">
+                            <a href="https://www.facebook.com/YourPageName" target="_blank" rel="noopener noreferrer">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="https://www.twitter.com/YourHandle" target="_blank" rel="noopener noreferrer">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="https://www.instagram.com/YourHandle" target="_blank" rel="noopener noreferrer">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/company/YourPage" target="_blank"
+                                rel="noopener noreferrer">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="contact-form">
+                        <h3>Send Us a Message</h3>
+                        <form>
+                            <div class="form-group">
+                                <label for="c-name">Full Name</label>
+                                <input type="text" id="c-name" required>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="c-email">Email</label>
+                                    <input type="email" id="c-email" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="c-phone">Phone</label>
+                                    <input type="tel" id="c-phone">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="c-subject">Subject</label>
+                                <input type="text" id="c-subject" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="c-message">Message</label>
+                                <textarea id="c-message" rows="5" required></textarea>
+                            </div>
+
+                            <button type="submit" class="btn">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="contact-map" style="margin-top: 50px;">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.215373510287!2d-73.9878449242391!3d40.74844097138988!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c259a9b3117469%3A0xd134e199a405a163!2sEmpire%20State%20Building!5e0!3m2!1sen!2sus!4v1689878817589!5m2!1sen!2sus"
+                        allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer (same for all pages) -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h3>About Us</h3>
+                    <p>ONE TRUTH FOUNDATION is a non-profit organization dedicated to creating positive, lasting change
+                        in the lives of underprivileged individuals and families.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <p><a href="about.html">About</a></p>
+                    <p><a href="work.html">Our Work</a></p>
+                    <p><a href="involve.html">Get Involved</a></p>
+                    <p><a href="contact.html">Contact</a></p>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact Us</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> 123 Charity Street, City, Country</p>
+                    <p><i class="fas fa-phone"></i> +1 234 567 890</p>
+                    <p><i class="fas fa-envelope"></i> info@onetruthfoundation.org</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 ONE TRUTH FOUNDATION. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Theme Toggle Functionality
+        const themeToggle = document.getElementById('themeToggle');
+        const body = document.body;
+
+        // Check for saved theme preference or use preferred color scheme
+        const currentTheme = localStorage.getItem('theme') ||
+            (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+
+        // Apply the current theme
+        if (currentTheme === 'dark') {
+            body.setAttribute('data-theme', 'dark');
+            themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+        }
+
+        // Toggle theme on button click
+        themeToggle.addEventListener('click', () => {
+            if (body.getAttribute('data-theme') === 'dark') {
+                body.removeAttribute('data-theme');
+                themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+                localStorage.setItem('theme', 'light');
+            } else {
+                body.setAttribute('data-theme', 'dark');
+                themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+                localStorage.setItem('theme', 'dark');
+            }
+        });
+
+        // Simple page routing for this demo
+        document.addEventListener('DOMContentLoaded', function () {
+            // Get current page from URL or default to home
+            const path = window.location.pathname.split('/').pop() || 'index.html';
+            let currentPage = 'home';
+
+            if (path.includes('about')) currentPage = 'about';
+            else if (path.includes('work')) currentPage = 'work';
+            else if (path.includes('involve')) currentPage = 'involve';
+            else if (path.includes('contact')) currentPage = 'contact';
+
+            // Show the appropriate page content
+            document.querySelectorAll('.page-content').forEach(page => {
+                page.style.display = 'none';
+            });
+            document.getElementById(`${currentPage}Page`).style.display = 'block';
+
+            // Update active nav link
+            document.querySelectorAll('nav a').forEach(link => {
+                link.classList.remove('active');
+            });
+            document.getElementById(`${currentPage}Link`).classList.add('active');
+
+            // Tab functionality for Get Involved page
+            const tabBtns = document.querySelectorAll('.tab-btn');
+            const tabContents = document.querySelectorAll('.tab-content');
+
+            if (tabBtns.length > 0) {
+                tabBtns.forEach(btn => {
+                    btn.addEventListener('click', () => {
+                        const tabId = btn.getAttribute('data-tab');
+
+                        tabBtns.forEach(b => b.classList.remove('active'));
+                        tabContents.forEach(c => c.classList.remove('active'));
+
+                        btn.classList.add('active');
+                        document.getElementById(tabId).classList.add('active');
+                    });
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>

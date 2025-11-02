@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Involved | ONE TRUTH FOUNDATION</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <header>
+        <div class="container header-container">
+            <a href="index.html" class="logo">ONE <span>TRUTH FOUNDATION</span></a>
+            <nav>
+                <ul>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="work.html">Our Work</a></li>
+                    <li><a href="involve.html" class="active">Get Involved</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+            <button class="theme-toggle" id="themeToggle">
+                <i class="fas fa-moon"></i>
+            </button>
+            <div class="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <main class="page-content">
+        <div class="container">
+            <div class="page-hero">
+                <h1>Get Involved</h1>
+                <p>Join us in creating positive change through various opportunities</p>
+            </div>
+
+            <div class="involve-options">
+                <div class="option-tabs">
+                    <button class="tab-btn active" data-tab="volunteer">Volunteer</button>
+                    <button class="tab-btn" data-tab="donate">Donate</button>
+                    <button class="tab-btn" data-tab="partner">Partner With Us</button>
+                </div>
+
+                <div id="volunteer" class="tab-content active">
+                    <div class="volunteer-form">
+                        <h2>Volunteer Application</h2>
+                        <p>Join our team of dedicated volunteers and contribute your time and skills to meaningful
+                            causes.</p>
+
+                        <form>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="v-name">Full Name</label>
+                                    <input type="text" id="v-name" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="v-email">Email</label>
+                                    <input type="email" id="v-email" required>
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="v-phone">Phone</label>
+                                    <input type="tel" id="v-phone">
+                                </div>
+                                <div class="form-group">
+                                    <label for="v-location">Location</label>
+                                    <input type="text" id="v-location">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="v-skills">Skills/Expertise</label>
+                                <input type="text" id="v-skills" placeholder="Teaching, Medical, Construction, etc.">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="v-interests">Areas of Interest</label>
+                                <select id="v-interests">
+                                    <option value="education">Education</option>
+                                    <option value="healthcare">Healthcare</option>
+                                    <option value="women-empowerment">Women Empowerment</option>
+                                    <option value="social-justice">Social Justice</option>
+                                    <option value="fundraising">Fundraising</option>
+                                    <option value="events">Event Management</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="v-availability">Availability</label>
+                                <select id="v-availability">
+                                    <option value="weekdays">Weekdays</option>
+                                    <option value="weekends">Weekends</option>
+                                    <option value="both">Both</option>
+                                    <option value="flexible">Flexible</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="v-message">Why do you want to volunteer with us?</label>
+                                <textarea id="v-message" rows="4"></textarea>
+                            </div>
+
+                            <button type="submit" class="btn">Submit Application</button>
+                        </form>
+                    </div>
+                </div>
+
+                <div id="donate" class="tab-content">
+                    <div class="donation-form">
+                        <h2>Make a Donation</h2>
+                        <p>Your generous contribution helps us continue our vital work in communities.</p>
+
+                        <form>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="d-name">Full Name</label>
+                                    <input type="text" id="d-name" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="d-email">Email</label>
+                                    <input type="email" id="d-email" required>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="d-amount">Donation Amount (USD)</label>
+                                <input type="number" id="d-amount" min="1" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="d-frequency">Donation Frequency</label>
+                                <select id="d-frequency">
+                                    <option value="one-time">One-time</option>
+                                    <option value="monthly">Monthly</option>
+                                    <option value="quarterly">Quarterly</option>
+                                    <option value="yearly">Yearly</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="d-purpose">Purpose (Optional)</label>
+                                <select id="d-purpose">
+                                    <option value="general">General Fund</option>
+                                    <option value="education">Education Programs</option>
+                                    <option value="healthcare">Healthcare Initiatives</option>
+                                    <option value="women">Women Empowerment</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="d-message">Message (Optional)</label>
+                                <textarea id="d-message" rows="3"></textarea>
+                            </div>
+
+                            <button type="submit" class="btn">Proceed to Payment</button>
+                        </form>
+                    </div>
+                </div>
+
+                <div id="partner" class="tab-content">
+                    <div class="section-title">
+                        <h2>Partnership Opportunities</h2>
+                        <p>We collaborate with corporations, institutions, and other NGOs to maximize our impact</p>
+                    </div>
+
+                    <div class="focus-grid">
+                        <div class="focus-card">
+                            <div class="focus-icon">
+                                <i class="fas fa-handshake"></i>
+                            </div>
+                            <h3>Corporate Partnerships</h3>
+                            <p>CSR initiatives, employee volunteering, and cause-related marketing collaborations.</p>
+                        </div>
+                        <div class="focus-card">
+                            <div class="focus-icon">
+                                <i class="fas fa-university"></i>
+                            </div>
+                            <h3>Institutional Tie-ups</h3>
+                            <p>Collaborate with schools, colleges, and universities for awareness and action.</p>
+                        </div>
+                        <div class="focus-card">
+                            <div class="focus-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <h3>Community Partnerships</h3>
+                            <p>Work with local leaders and community groups for grassroots implementation.</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-info" style="margin-top: 50px;">
+                        <h3>For partnership inquiries:</h3>
+                        <p>Email us at <a
+                                href="mailto:partnerships@onetruthfoundation.org">partnerships@onetruthfoundation.org</a>
+                        </p>
+                        <p>Call our partnership team at +1 (234) 567-8910</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h3>About Us</h3>
+                    <p>ONE TRUTH FOUNDATION is a non-profit organization dedicated to creating positive, lasting change
+                        in the lives of underprivileged individuals and families.</p>
+                    <div class="social-contact">
+                        <a href="https://www.facebook.com/OneTruthFoundation" target="_blank"><i
+                                class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.twitter.com/OneTruthFdn" target="_blank"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.instagram.com/OneTruthFoundation" target="_blank"><i
+                                class="fab fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com/company/one-truth-foundation" target="_blank"><i
+                                class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <p><a href="about.html">About</a></p>
+                    <p><a href="work.html">Our Work</a></p>
+                    <p><a href="involve.html">Get Involved</a></p>
+                    <p><a href="contact.html">Contact</a></p>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact Us</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> 123 Charity Street, City, Country</p>
+                    <p><i class="fas fa-phone"></i> +1 234 567 890</p>
+                    <p><i class="fas fa-envelope"></i> info@onetruthfoundation.org</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 ONE TRUTH FOUNDATION. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>
